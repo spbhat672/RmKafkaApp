@@ -1,0 +1,100 @@
+USE [3DX_RMkafkaDB]
+GO
+
+/****** Object:  Table [dbo].[LocationTable]    Script Date: 4/9/2021 3:32:58 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[LocationTable](
+	[X] [decimal](18, 4) NULL,
+	[Y] [decimal](18, 4) NULL,
+	[Z] [decimal](18, 4) NULL,
+	[Rotation] [decimal](18, 4) NULL,
+	[Id] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+
+
+
+USE [3DX_RMkafkaDB]
+GO
+
+/****** Object:  Table [dbo].[ResourceTable]    Script Date: 4/9/2021 3:33:26 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ResourceTable](
+	[TypeId] [int] NOT NULL,
+	[StatusId] [int] NOT NULL,
+	[LocationId] [bigint] NOT NULL,
+	[Name] [nvarchar](30) NOT NULL,
+	[Id] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY]
+GO
+
+
+
+
+USE [3DX_RMkafkaDB]
+GO
+
+/****** Object:  Table [dbo].[StatusTable]    Script Date: 4/9/2021 3:33:51 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[StatusTable](
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](10) NOT NULL
+) ON [PRIMARY]
+GO
+
+
+
+
+
+USE [3DX_RMkafkaDB]
+GO
+
+/****** Object:  Table [dbo].[TypeTable]    Script Date: 4/9/2021 3:34:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[TypeTable](
+	[Id] [int] NOT NULL,
+	[Name] [nvarchar](10) NOT NULL
+) ON [PRIMARY]
+GO
+ 
+USE [3DX_RMkafkaDB]
+GO
+
+INSERT INTO [dbo].[TypeTable]
+           ([Id]
+           ,[Name])
+     VALUES
+           (101,'Conveyor'),(102,'Mobiler'),(103,'Truck'),(104,'Machine')
+GO 
+  
+USE [3DX_RMkafkaDB]
+GO
+
+INSERT INTO [dbo].[StatusTable]
+           ([Id]
+           ,[Name])
+     VALUES
+           (201,'Running'),(202,'ON'),(203,'OFF'),(204,'Stopped')
+GO 
+ 
+

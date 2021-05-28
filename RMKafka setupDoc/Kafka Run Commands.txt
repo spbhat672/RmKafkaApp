@@ -1,0 +1,13 @@
+https://www.youtube.com/watch?v=EUzH9khPYgs
+
+
+
+C:\kafka\kafka\kafka> .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+C:\kafka\kafka\kafka> .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+C:\kafka\kafka\kafka>.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic rmResourceBulk
+
+C:\kafka\kafka\kafka>.\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic rmResourceBulk --from-beginning
